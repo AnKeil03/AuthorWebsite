@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Webpage with Tabs</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tab-container {
+            width: 100%;
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .tab-menu {
+            display: flex;
+            background-color: #eaeaea;
+            border-bottom: 2px solid #ddd;
+        }
+
+
+        .tab-button {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #555;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+
+        .tab-button:hover {
+            background-color: #dbdbdb;
+            color: #000;
+        }
+
+
+        .tab-button.active {
+            background-color: #ffffff;
+            color: #2b6cb0;
+            border-bottom: 2px solid #2b6cb0;
+            margin-bottom: -2px;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Subtle fade-in animation when changing tabs */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tab-container">
+        <div class="tab-menu">
+            <button class="tab-button active" onclick="switchTab(event, 'tab-about')">About Me</button>
+            <button class="tab-button" onclick="switchTab(event, 'tab-projects')">Current Projects</button>
+        </div>
+
+        <div id="tab-about" class="tab-content active">
+            <h1>Hello World</h1>
+            <h2>About Me</h2>
+            
+            <p>I am a half-Taiwanese software engineer living in Iowa City, IA with a passion for visually compelling science fiction and fantasy stories. While studying engineering, I acquired a writing certificate through the University of Iowa’s Writers’ Workshop, using my knowledge of science and technology to enhance my storytelling. When I am not coding or writing with a cat on my lap, I spend as much time as I can outdoors by either digging around in my garden with my dog or exploring new trails and parks with my husband across the country.
+            </p>
+            
+            <p>You can also find me posting and querying at:</p>
+            <ul>
+              <li>@ayungenrevelez - Instagram/Threads</li>
+              <li>Anna Revelez - LitConnect</li>
+              <li>Anna Revelez - QueryTo</li>
+              <li>Anna Revelez - QueryTracker</li>
+            </ul>
+        </div>
+
+        <div id="tab-projects" class="tab-projects">
+            <h2>Current Projects</h2>
+            <h3>TEETH</h3>
+            <p>Status: Query Ready</p>
+            <p>About: A 21k science-fiction, dark fantasy adult novella featuring a morally gray, BIPOC, and queer vampire in space.</p>
+            <p>Comps: MONSTERS AND MAINFRAMES by Barbara Truelove, THE MURDERBOT DIARIES series by Martha Wells, THE LOCKED TOMB series by Tamsyn Muir, BURY OUR BONES IN THE MIDNIGHT SOIL by V.E. Schwab</p>
+            <h3>THE BELL FLOWER</h3>
+            <p>Status: Drafting</p>
+            <p>About: A 75k dark, urban fantasy adult novel featuring a former streetfighter turned demon hunter in a post-apocalyptic, cyberpunk setting centered around Chinese history, culture, and mythology.</p>
+            <p>Comps: THE CURSE BEARER series by Veronica Roth, THE GREENBONE SAGA series by Fonda Lee, THE POET EMPRESS by Shen Tao, THE POPPY WAR series by R.F. Kuang, TRESE T.V. series by Budjette Tan</p>
+            <h3>SHORT STORIES</h3>
+            <h4>LA SEMILLA NEGRA</h4>
+            <p>Status: Drafting</p>
+            <h4>METEORITE</h4>
+            <p>Status: Drafting</p>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(event, tabId) {
+            const projects = document.querySelectorAll('.tab-projects');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
